@@ -1,0 +1,35 @@
+LOoSFIND-New
+├───.gradle
+├───.idea
+├───build
+├───gradle
+│   └───wrapper
+│       ├───gradle-wrapper.jar
+│       └───gradle-wrapper.properties
+├───resources
+│   ├───images
+│   │   └───placeholder.png
+│   └───styles.css
+├───src
+│   ├───controller
+│   │   ├───VentanaLogin.java
+│   │   ├───VentanaPrincipal.java
+│   │   ├───VentanaRegistroObjeto.java
+│   │   └───VentanaUsuario.java
+│   ├───model
+│   │   ├───Usuario.java
+│   │   └───ObjetoPerdido.java
+│   ├───service
+│   │   ├───DatabaseService.java  # Lógica de conexión a MySQL
+│   │   ├───Login.java
+│   │   ├───Main.java             # Clase principal del proyecto
+│   │   └───ObjetosExtraviados.java
+│   └───view
+│       ├───VistaLogin.fxml
+│       ├───VistaPrincipal.fxml
+│       ├───VistaRegistroObjeto.fxml
+│       └───VistaUsuario.fxml
+├───build.gradle                    # Configuración de dependencias y plugins
+├───gradlew                         # Script de Gradle
+├───gradlew.bat                     # Script de Gradle para Windows
+└───README.md                       # Archivo README del proyecto
