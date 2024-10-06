@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.VentanaRegistroObjeto" hgap="10" vgap="10" alignment="CENTER">
+    <Label text="Color:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <TextField fx:id="colorField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+    <Label text="Forma:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="formaField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+    <Label text="Tipo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <TextField fx:id="tipoField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+    <Label text="Ubicación:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <TextField fx:id="ubicacionField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    <Label text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <TextArea fx:id="descripcionField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+    <Button text="Guardar" onAction="#guardarObjeto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Button text="Regresar al Menú Principal" onAction="#regresarAlMenuPrincipal" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+</GridPane>
