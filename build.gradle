@@ -8,20 +8,24 @@ repositories {
 }
 
 dependencies {
+    // JavaFX
     implementation 'org.openjfx:javafx-controls:22'
+
+    // MySQL Connector
+    implementation 'mysql:mysql-connector-java:9.0.0'
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
+        languageVersion = JavaLanguageVersion.of(22) // Mantener Java 22
     }
 }
 
 application {
-    mainClassName = 'main.Main'
+    mainClassName = 'main.Main'  // Asegúrate de que esto sea correcto
 }
 
 javafx {
     version = "22"
-    modules = [ 'javafx.controls' ]
+    modules = [ 'javafx.controls' ]  // Módulos necesarios de JavaFX
 }
