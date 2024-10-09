@@ -11,6 +11,8 @@ public class VentanaRegistroObjeto {
         Connection conexion = DatabaseService.ConectarBD();
         String sql = "INSERT INTO objetos_perdidos (nombre, descripcion) VALUES (?, ?)";
 
+
+        //agregar buscador
         try {
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, nombreObjeto);
