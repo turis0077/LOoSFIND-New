@@ -1,5 +1,4 @@
-//Imports para hacer la base de datos que guarda usuario y contraseña del usuario
-
+//Imports para hacer la base de datos que guarda usuario y contraseña del usuario en MySQL
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,12 +7,19 @@ import java.sql.Statement;
 import service.DatabaseService;
 import model.Usuario;
 
+//Imports para javafx
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
 import java.util.*;
 
 public class VentanaLogin{ //Clase de ventana del login
     //Atributos
-    private String correo;
-    private String pasw;
+    private TextField txtcorreo;
+    private TextField txtpasw;
 
     DatabaseService sqldatabase = new DatabaseService();
     Connection connection = sqldatabase.ConectarBD();
