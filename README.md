@@ -1,6 +1,5 @@
-# LOoSFIND-New
-#
-# LOosFIND es una aplicacion, programada en Java, con el objetivo de 
-# facilitarle a los miembros de la comunidad UVG el proceso de encontrar
-# objetos perdidos y a los dueños de dichos objetos.
-#
+# LOoSFIND
+LOoSFIND sera una aplicacion que iniciara como aplicacion de escritorio, usada 
+con el objetivo de funcionar como un facilitador para las personas que pierden
+o encuentran objetos perdidos, de tal forma que el proceso se vuelva mas rapido 
+y facil.
