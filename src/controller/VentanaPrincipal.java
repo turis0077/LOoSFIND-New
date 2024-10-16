@@ -99,4 +99,5 @@ public class VentanaPrincipal {
         // Actualizar la tabla con los resultados filtrados
         objectTableView.setItems(filteredList);
     }
+
 }
