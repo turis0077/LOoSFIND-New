@@ -21,31 +21,31 @@ public class VentanaPrincipal {
     private TextField searchField; // Campo de búsqueda
 
     @FXML
-    private TableView<Object> objectTableView; // Tabla para mostrar los objetos registrados
+    private TableView<Object> objectsTableView; // Tabla para mostrar los objetos registrados
 
     @FXML
-    private TableColumn<Object, String> nameColumn; // Columna de tipo de objeto
+    private TableColumn<Object, String> typeColumn; // Columna de tipo de objeto
 
     @FXML
-    private TableColumn<Object, String> descriptionColumn; // Columna de color
+    private TableColumn<Object, String> colorColumn; // Columna de color
 
     @FXML
-    private TableColumn<Object, String> priceColumn; // Columna de tamaño
+    private TableColumn<Object, String> sizeColumn; // Columna de tamano
 
     @FXML
-    private TableColumn<Object, String> priceColumn1; // Columna de forma
+    private TableColumn<Object, String> shapeColumn; // Columna de forma
 
     @FXML
-    private TableColumn<Object, String> priceColumn11; // Columna de fecha
+    private TableColumn<Object, String> dateColumn; // Columna de fecha
 
     @FXML
-    private TableColumn<Object, String> priceColumn111; // Columna de ubicación
+    private TableColumn<Object, String> locationColumn; // Columna de ubicacion
 
     @FXML
-    private TableColumn<Object, String> priceColumn1111; // Columna de estado
+    private TableColumn<Object, String> estadoColumn; // Columna de estado
 
     @FXML
-    private TableColumn<Object, String> priceColumn11111; // Columna de secretaría
+    private TableColumn<Object, String> secretariaColumn; // Columna de secretaria
 
     // Lista para almacenar los objetos de la tabla
     private ObservableList<Object> objectList = FXCollections.observableArrayList();
@@ -54,17 +54,17 @@ public class VentanaPrincipal {
     @FXML
     public void initialize() {
         // Configurar las columnas con los atributos de la clase Object
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
-        priceColumn1.setCellValueFactory(new PropertyValueFactory<>("shape"));
-        priceColumn11.setCellValueFactory(new PropertyValueFactory<>("date"));
-        priceColumn111.setCellValueFactory(new PropertyValueFactory<>("location"));
-        priceColumn1111.setCellValueFactory(new PropertyValueFactory<>("status"));
-        priceColumn11111.setCellValueFactory(new PropertyValueFactory<>("secretary"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colorColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
+        shapeColumn.setCellValueFactory(new PropertyValueFactory<>("shape"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        estadoColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        secretariaColumn.setCellValueFactory(new PropertyValueFactory<>("secretary"));
 
         // Configurar la tabla con la lista observable
-        objectTableView.setItems(objectList);
+        objectsTableView.setItems(objectList);
     }
 
     // Acción al hacer click en el botón "Haz click aqui para agregar un objeto"
