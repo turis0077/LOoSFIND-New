@@ -5,33 +5,36 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import service.DatabaseService;
-import model.Usuario;
 
-//Imports para javafx
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-
+//Otros imports
 import java.util.*;
+import model.Usuario;
+import java.util.ArrayList;
 
 public class VentanaLogin{ //Clase de ventana del login
     //Atributos
     private TextField txtcorreo;
     private TextField txtpasw;
 
+    //List<Usuario> usuarios = new ArrayList<Usuario>();
+
     DatabaseService sqldatabase = new DatabaseService();
     Connection connection = sqldatabase.ConectarBD();
     Statement statement = connection.createStatement();
-    statement.executeUpdate("CREATE TABLE IF NOT EXISTS usuarios (" + "correo VARCHAR(100) NOT NULL, " + "pasw VARCHAR(100) NOT NULL)");
-
-    preparedStatement = connection.preparedStatement("INSERT INTO empleados (nombre, salario) VALUES (?, ?)");
 
     //Método constructor
     public VentanaLogin(String correo, String pasw){
         this.correo = correo;
         this.pasw = pasw;
+
+        statement.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario (" + "id INT AUTO_INCREMENT PRIMARY KEY, " + "correo AUTO_INCREMENT, " + "pasw AUTO_INCREMENT;");
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Usuario (correo, pasw) VALUES (?, ?)");
+
+        preparedStatement.setString(1, correo);
+        preparedStatement.setString(2, pasw);
+        preparedStatement.executeUpdate();
+
+
     } 
 
     //Getters y setters
@@ -76,5 +79,5 @@ public class VentanaLogin{ //Clase de ventana del login
         //Si el usuario no está en el MySQL retornar mensaje de error
     }
 
-    sqldatabase.DesconectarBD(connection);
+    statement.DesconectarBD(connection);
 }
