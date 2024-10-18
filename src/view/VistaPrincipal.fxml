@@ -50,6 +50,7 @@
     
     <!-- Logo y título de la aplicación -->
     <Label layoutX="20.0" layoutY="21.0" style="-fx-text-fill: white; -fx-font-size: 24;" text="LOoSFIND" />
+    
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3133" height="49.0" layoutX="26.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="475.0" />
    <ImageView accessibleRole="BUTTON" fitHeight="26.0" fitWidth="20.0" layoutX="42.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -57,6 +58,9 @@
       </image>
    </ImageView>
      <TextField fx:id="searchField" layoutX="74.0" layoutY="104.0" prefHeight="26.0" prefWidth="404.0" promptText="Buscar..." />
-   <Button layoutX="750.0" layoutY="23.0" mnemonicParsing="false" text="Button" />
+   <Button layoutX="596.0" layoutY="25.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" text="Usuario">
+      <graphic>
+         <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" />
+      </graphic></Button>
     
 </AnchorPane>
