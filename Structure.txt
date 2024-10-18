@@ -1,35 +1,141 @@
 LOoSFIND-New
+│   build.gradle
+│   gradlew
+│   gradlew.bat
+│   README.md
+│   Structure.txt
+│
 ├───.gradle
+│   │   file-system.probe
+│   │
+│   ├───8.10
+│   │   │   gc.properties
+│   │   │
+│   │   ├───checksums
+│   │   │       checksums.lock
+│   │   │       md5-checksums.bin
+│   │   │       sha1-checksums.bin
+│   │   │
+│   │   ├───dependencies-accessors
+│   │   │       gc.properties
+│   │   │
+│   │   ├───executionHistory
+│   │   │       executionHistory.bin
+│   │   │       executionHistory.lock
+│   │   │
+│   │   ├───expanded
+│   │   ├───fileChanges
+│   │   │       last-build.bin
+│   │   │
+│   │   ├───fileHashes
+│   │   │       fileHashes.bin
+│   │   │       fileHashes.lock
+│   │   │       resourceHashesCache.bin
+│   │   │
+│   │   └───vcsMetadata
+│   ├───buildOutputCleanup
+│   │       buildOutputCleanup.lock
+│   │       cache.properties
+│   │       outputFiles.bin
+│   │
+│   └───vcs-1
+│           gc.properties
+│
 ├───.idea
+│       .gitignore
+│       compiler.xml
+│       gradle.xml
+│       jarRepositories.xml
+│       misc.xml
+│       workspace.xml
+│
 ├───build
+│   ├───classes
+│   │   └───java
+│   │       └───main
+│   │           │   Login.class
+│   │           │   VentanaLogin.class
+│   │           │
+│   │           ├───controller
+│   │           │       VentanaPrincipal.class
+│   │           │       VentanaRegistroObjeto.class
+│   │           │       VentanaUsuario.class
+│   │           │
+│   │           ├───model
+│   │           │       ObjetoPerdido.class
+│   │           │       Usuario.class
+│   │           │
+│   │           └───service
+│   │                   DatabaseService.class
+│   │                   Main.class
+│   │                   ObjetosExtraviados.class
+│   │
+│   ├───distributions
+│   │       LOoSFIND_New.tar
+│   │       LOoSFIND_New.zip
+│   │
+│   ├───generated
+│   │   └───sources
+│   │       ├───annotationProcessor
+│   │       │   └───java
+│   │       │       └───main
+│   │       └───headers
+│   │           └───java
+│   │               └───main
+│   ├───libs
+│   │       LOoSFIND_New.jar
+│   │
+│   ├───resources
+│   │   └───main
+│   │       └───view
+│   │               VistaPrincipal.fxml
+│   │
+│   ├───scripts
+│   │       LOoSFIND_New
+│   │       LOoSFIND_New.bat
+│   │
+│   └───tmp
+│       ├───compileJava
+│       │       previous-compilation-data.bin
+│       │
+│       └───jar
+│               MANIFEST.MF
+│
 ├───gradle
 │   └───wrapper
-│       ├───gradle-wrapper.jar
-│       └───gradle-wrapper.properties
+│           gradle-wrapper.jar
+│           gradle-wrapper.properties
+│
 ├───resources
-│   ├───images
-│   │   └───placeholder.png
-│   └───styles.css
-├───src
-│   ├───controller
-│   │   ├───VentanaLogin.java
-│   │   ├───VentanaPrincipal.java
-│   │   ├───VentanaRegistroObjeto.java
-│   │   └───VentanaUsuario.java
-│   ├───model
-│   │   ├───Usuario.java
-│   │   └───ObjetoPerdido.java
-│   ├───service
-│   │   ├───DatabaseService.java  # Lógica de conexión a MySQL
-│   │   ├───Login.java
-│   │   ├───Main.java             # Clase principal del proyecto
-│   │   └───ObjetosExtraviados.java
-│   └───view
-│       ├───VistaLogin.fxml
-│       ├───VistaPrincipal.fxml
-│       ├───VistaRegistroObjeto.fxml
-│       └───VistaUsuario.fxml
-├───build.gradle                    # Configuración de dependencias y plugins
-├───gradlew                         # Script de Gradle
-├───gradlew.bat                     # Script de Gradle para Windows
-└───README.md                       # Archivo README del proyecto
+│   │   styles.css
+│   │
+│   └───images
+│           placeholder.png
+│
+└───src
+    └───main
+        ├───java
+        │   ├───controller
+        │   │       VentanaLogin.java
+        │   │       VentanaPrincipal.java
+        │   │       VentanaRegistroObjeto.java
+        │   │       VentanaUsuario.java
+        │   │
+        │   ├───model
+        │   │       ObjetoPerdido.java
+        │   │       Usuario.java
+        │   │
+        │   ├───service
+        │   │       DatabaseService.java
+        │   │       Login.java
+        │   │       Main.java
+        │   │       ObjetosExtraviados.java
+        │   │
+        │   └───view
+        │           VistaLogin.fxml
+        │           VistaRegistroObjeto.fxml
+        │           VistaUsuario.fxml
+        │
+        └───resources
+            └───view
+                    VistaPrincipal.fxml
