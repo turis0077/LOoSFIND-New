@@ -12,50 +12,35 @@ import model.Usuario;
 import java.util.ArrayList;
 
 public class VentanaLogin{ //Clase de ventana del login
-    //Atributos
-    private TextField txtcorreo;
-    private TextField txtpasw;
-
     //List<Usuario> usuarios = new ArrayList<Usuario>();
 
+    //Creación de la base de datos y establecer conexión con la cuenta de MySQL
     DatabaseService sqldatabase = new DatabaseService();
     Connection connection = sqldatabase.ConectarBD();
     Statement statement = connection.createStatement();
 
     //Método constructor
-    public VentanaLogin(String correo, String pasw){
-        this.correo = correo;
-        this.pasw = pasw;
-
+    public String RegistrarNuevaCuenta(String correo, String pasw){
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario (" + "id INT AUTO_INCREMENT PRIMARY KEY, " + "correo AUTO_INCREMENT, " + "pasw AUTO_INCREMENT;");
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Usuario (correo, pasw) VALUES (?, ?)");
 
+        //Agregar un if que compruebe si se registró o no la cuenta anteriormente
         preparedStatement.setString(1, correo);
         preparedStatement.setString(2, pasw);
         preparedStatement.executeUpdate();
-
-
     } 
-
-    //Getters y setters
-    public String getCorreo(){
-        return correo;
-    }
-
-    public void setCorreo(String correo){
-        this.correo = correo;
-    }
     
-    public String getPasw(){
-        return pasw;
-    }
+    //Método que comprueba si una cuenta está registrada            
+    public boolean CuentaRegistradaSiNo(String correo){
+        boolean cuenreg = null;
 
-    public void setPasw(String pasw){
-        this.pasw = pasw;
-    }
-    
-    //Método handleLogin            
-    public String handleLogin(boolean inicioRegistrado, String correo, String pasw){//Inicio registrado es un booleano que para true significa que ha salido con éxito el inicio de sesión, mientras que false es que ha fallado la operación.
+        String query = "SELECT * FROM Usuario WHERE correo = ?"; 
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, searchCorreo); 
+        findCorreo = preparedStatement.executeQuery();
+
+        //Hacer un if para buscar el correo ingresado en la tabla que retorne un true o false
+        
         if (inicioRegistrado == true){//La cuenta está registrada
             //Comprobar que la cuenta si esté registrada
             //Si el inicio está registrado
@@ -79,5 +64,5 @@ public class VentanaLogin{ //Clase de ventana del login
         //Si el usuario no está en el MySQL retornar mensaje de error
     }
 
-    statement.DesconectarBD(connection);
+    DatabaseService.DesconectarBD(connection);
 }
