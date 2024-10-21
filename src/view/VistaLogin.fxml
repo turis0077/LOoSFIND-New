@@ -66,6 +66,53 @@ public class VistaLogin extends Application {
     }
 
     //Método para abrir la ventana de inicio de sesión
+    private void AbrirVentanaLogin() {
+        Label Iniciosesión = new Label("Inicio de sesión");
+        Iniciosesión.setLayoutX(359);
+        Iniciosesión.setLayoutY(84);
+        Iniciosesión.setPrefWidth(134);
+        Iniciosesión.setPrefHeight(25);
+        Iniciosesión.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 20.00));
+        Iniciosesión.setStyle("-fx-text-fill: #D9D9D9;");
+        pane.getChildren().add(Iniciosesión);
+
+        TextField element2 = new TextField("");
+        element2.setLayoutX(234.19);
+        element2.setLayoutY(164.00);
+        element2.setPrefWidth(379.00);
+        element2.setPrefHeight(23.00);
+        element2.setPromptText("Correo");
+        element2.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        element2.setStyle("-fx-background-color: #B2B2B2; -fx-text-fill: #353535; -fx-border-color: #979797; -fx-border-width: 0px; -fx-border-radius: 2px; -fx-prompt-text-fill: #656565;");
+        pane.getChildren().add(element2);
+
+        PasswordField element3 = new PasswordField();
+        element3.setText("");
+        element3.setLayoutX(236.19);
+        element3.setLayoutY(251.00);
+        element3.setPrefWidth(379.00);
+        element3.setPrefHeight(21.00);
+        element3.setPromptText("Contraseña");
+        element3.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        element3.setStyle("-fx-background-color: #B2B2B2; -fx-text-fill: #353535; -fx-border-color: #979797; -fx-border-width: 0px; -fx-border-radius: 2px; -fx-prompt-text-fill: #656565;");
+        pane.getChildren().add(element3);
+
+        Button element6 = new Button("Iniciar sesión");
+        element6.setLayoutX(369.79);
+        element6.setLayoutY(333.00);
+        element6.setPrefWidth(105.81);
+        element6.setPrefHeight(28.00);
+        element6.setDisable(false);
+        element6.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        element6.setStyle("-fx-background-color: #2e2e2e; -fx-text-fill: #D9D9D9; -fx-border-color: #979797; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-border-width: 1px;");
+        element6.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> { element6.setBackground(new Background(new BackgroundFill(Color.web("#232323"), new CornerRadii(4.00), null))); });
+        element6.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> { element6.setBackground(new Background(new BackgroundFill(Color.web("#2e2e2e"), new CornerRadii(4.00), null))); });
+        pane.getChildren().add(element6);
+
+        Scene scene = new Scene(pane, 850, 424);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
     //Método para abrir la ventana de registro
 }
