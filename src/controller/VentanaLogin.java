@@ -39,6 +39,8 @@ public class VentanaLogin{ //Clase de ventana del login
         preparedStatement.setInt(1, searchCorreo); 
         findCorreo = preparedStatement.executeQuery();
 
+        
+        
         //Hacer un if para buscar el correo ingresado en la tabla que retorne un true o false
         
         if (inicioRegistrado == true){//La cuenta está registrada
@@ -64,5 +66,5 @@ public class VentanaLogin{ //Clase de ventana del login
         //Si el usuario no está en el MySQL retornar mensaje de error
     }
 
-    DatabaseService.DesconectarBD(connection);
+    sqldatabase.DesconectarBD(connection);//Revisar métodos que ejecutan la conexión y desconexión
 }

@@ -1,0 +1,71 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
+public class VistaLogin extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("My Awesome Window");
+
+        Pane pane = new Pane();
+        pane.setPrefSize(850, 424);
+        pane.setStyle("-fx-background-color: #1e1e1e;");
+
+        Label LOoSFIND = new Label("LOoSFIND");
+        LOoSFIND.setLayoutX(378);
+        LOoSFIND.setLayoutY(55);
+        LOoSFIND.setPrefWidth(95);
+        LOoSFIND.setPrefHeight(23);
+        LOoSFIND.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 20.00));
+        LOoSFIND.setStyle("-fx-text-fill: #D9D9D9;");
+        pane.getChildren().add(LOoSFIND);
+
+        Button Login = new Button("Iniciar sesión");
+        Login.setLayoutX(196.00);
+        Login.setLayoutY(275.00);
+        Login.setPrefWidth(175.00);
+        Login.setPrefHeight(55.00);
+        Login.setDisable(false);
+        Login.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 14.00));
+        Login.setStyle("-fx-background-color: #2e2e2e; -fx-text-fill: #D9D9D9; -fx-border-color: #979797; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-border-width: 1px;");
+        Login.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
+            Login.setBackground(new Background(new BackgroundFill(Color.web("#232323"), new CornerRadii(4.00), null)));
+        });
+        Login.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> {
+            Login.setBackground(new Background(new BackgroundFill(Color.web("#2e2e2e"), new CornerRadii(4.00), null)));
+            AbrirVentanaLogin();
+        });
+        pane.getChildren().add(Login);
+
+        // Botón de registrarse
+        Button Registrarse = new Button("Registrarme");
+        Registrarse.setLayoutX(476.00);
+        Registrarse.setLayoutY(275.00);
+        Registrarse.setPrefWidth(176.00);
+        Registrarse.setPrefHeight(52.00);
+        Registrarse.setDisable(false);
+        Registrarse.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 14.00));
+        Registrarse.setStyle("-fx-background-color: #2e2e2e; -fx-text-fill: #D9D9D9; -fx-border-color: #979797; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-border-width: 1px;");
+        Registrarse.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
+            Registrarse.setBackground(new Background(new BackgroundFill(Color.web("#232323"), new CornerRadii(4.00), null)));
+        });
+        Registrarse.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> {
+            Registrarse.setBackground(new Background(new BackgroundFill(Color.web("#2e2e2e"), new CornerRadii(4.00), null)));
+            AbrirVentanaRegistrarse();
+        });
+        pane.getChildren().add(Registrarse);
+
+        Scene scene = new Scene(pane, 850, 424);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    //Método para abrir la ventana de inicio de sesión
+
+    //Método para abrir la ventana de registro
+}
