@@ -7,10 +7,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class VistaLogin extends Application {
+public class VistaLogin extends Application{
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("My Awesome Window");
+    public void start(Stage primaryStage){
+        primaryStage.setTitle("Ventana Login Usuario");
 
         Pane pane = new Pane();
         pane.setPrefSize(850, 424);
@@ -25,6 +25,7 @@ public class VistaLogin extends Application {
         LOoSFIND.setStyle("-fx-text-fill: #D9D9D9;");
         pane.getChildren().add(LOoSFIND);
 
+        //Botón de Login
         Button Login = new Button("Iniciar sesión");
         Login.setLayoutX(196.00);
         Login.setLayoutY(275.00);
@@ -35,10 +36,10 @@ public class VistaLogin extends Application {
         Login.setStyle("-fx-background-color: #2e2e2e; -fx-text-fill: #D9D9D9; -fx-border-color: #979797; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-border-width: 1px;");
         Login.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
             Login.setBackground(new Background(new BackgroundFill(Color.web("#232323"), new CornerRadii(4.00), null)));
+            AbrirVentanaLogin(Stage newStageLOG);
         });
         Login.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> {
             Login.setBackground(new Background(new BackgroundFill(Color.web("#2e2e2e"), new CornerRadii(4.00), null)));
-            AbrirVentanaLogin();
         });
         pane.getChildren().add(Login);
 
@@ -53,10 +54,10 @@ public class VistaLogin extends Application {
         Registrarse.setStyle("-fx-background-color: #2e2e2e; -fx-text-fill: #D9D9D9; -fx-border-color: #979797; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-border-width: 1px;");
         Registrarse.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
             Registrarse.setBackground(new Background(new BackgroundFill(Color.web("#232323"), new CornerRadii(4.00), null)));
+            AbrirVentanaRegistrarse(Stage newStage);
         });
         Registrarse.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> {
             Registrarse.setBackground(new Background(new BackgroundFill(Color.web("#2e2e2e"), new CornerRadii(4.00), null)));
-            AbrirVentanaRegistrarse();
         });
         pane.getChildren().add(Registrarse);
 
@@ -66,7 +67,13 @@ public class VistaLogin extends Application {
     }
 
     //Método para abrir la ventana de inicio de sesión
-    private void AbrirVentanaLogin() {
+    private void AbrirVentanaLogin(Stage newStageLOG){
+        newStageLOG.setTitle("Vista ventana inicio sesión");
+
+        Pane pane = new Pane();
+        pane.setPrefSize(850, 424);
+        pane.setStyle("-fx-background-color: #1e1e1e;");
+        
         Label Iniciosesión = new Label("Inicio de sesión");
         Iniciosesión.setLayoutX(359);
         Iniciosesión.setLayoutY(84);
@@ -110,9 +117,73 @@ public class VistaLogin extends Application {
         pane.getChildren().add(element6);
 
         Scene scene = new Scene(pane, 850, 424);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        newStageLOG.setScene(scene);
+        newStageLOG.show();
     }
 
-    //Método para abrir la ventana de registro
+    // Método para abrir ventana Registrarse
+    public void AbrirVentanaRegistrarse(Stage newStage){
+        newStage.setTitle("Vista ventana registro");
+
+        Pane pane = new Pane();
+        pane.setPrefSize(850, 424);
+        pane.setStyle("-fx-background-color: #1e1e1e;");
+
+        TextField Espcorr = new TextField("");
+        Espcorr.setLayoutX(207.79);
+        Espcorr.setLayoutY(107.00);
+        Espcorr.setPrefWidth(426.00);
+        Espcorr.setPrefHeight(23.33);
+        Espcorr.setPromptText("Ingrese su  correo");
+        Espcorr.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        Espcorr.setStyle("-fx-background-color: #B2B2B2; -fx-text-fill: #353535; -fx-border-color: #979797; -fx-border-width: 0px; -fx-border-radius: 2px; -fx-prompt-text-fill: #656565;");
+        pane.getChildren().add(Espcorr);
+
+        PasswordField Espcont = new PasswordField();
+        Espcont.setText("");
+        Espcont.setLayoutX(208.79);
+        Espcont.setLayoutY(197.00);
+        Espcont.setPrefWidth(427.00);
+        Espcont.setPrefHeight(23.33);
+        Espcont.setPromptText("Ingrese su  contraseña");
+        Espcont.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        Espcont.setStyle("-fx-background-color: #B2B2B2; -fx-text-fill: #353535; -fx-border-color: #979797; -fx-border-width: 0px; -fx-border-radius: 2px; -fx-prompt-text-fill: #656565;");
+        pane.getChildren().add(Espcont);
+
+        PasswordField Espcont2 = new PasswordField();
+        Espcont2.setText("");
+        Espcont2.setLayoutX(211.79);
+        Espcont2.setLayoutY(254.00);
+        Espcont2.setPrefWidth(425.00);
+        Espcont2.setPrefHeight(23.33);
+        Espcont2.setPromptText("Confirme su contraseña");
+        Espcont2.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        Espcont2.setStyle("-fx-background-color: #B2B2B2; -fx-text-fill: #353535; -fx-border-color: #979797; -fx-border-width: 0px; -fx-border-radius: 2px; -fx-prompt-text-fill: #656565;");
+        pane.getChildren().add(Espcont2);
+
+        Label Regtxt = new Label("Registrarse");
+        Regtxt.setLayoutX(371.79168701171875);
+        Regtxt.setLayoutY(42);
+        Regtxt.setPrefWidth(107);
+        Regtxt.setPrefHeight(24);
+        Regtxt.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 20.00));
+        Regtxt.setStyle("-fx-text-fill: #D9D9D9;");
+        pane.getChildren().add(Regtxt);
+
+        Button Botreg = new Button("Registrarme");
+        Botreg.setLayoutX(372.19);
+        Botreg.setLayoutY(331.00);
+        Botreg.setPrefWidth(100.00);
+        Botreg.setPrefHeight(30.00);
+        Botreg.setDisable(false);
+        Botreg.setFont(Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Lato.ttf"), 16.00));
+        Botreg.setStyle("-fx-background-color: #2e2e2e; -fx-text-fill: #D9D9D9; -fx-border-color: #979797; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-border-width: 1px;");
+        Botreg.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> { Botreg.setBackground(new Background(new BackgroundFill(Color.web("#232323"), new CornerRadii(4.00), null))); });
+        Botreg.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> { Botreg.setBackground(new Background(new BackgroundFill(Color.web("#2e2e2e"), new CornerRadii(4.00), null))); });
+        pane.getChildren().add(Botreg);
+
+        Scene scene = new Scene(pane, 850, 424);
+        newStage.setScene(scene);
+        newStage.show();
+    }
 }
