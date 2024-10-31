@@ -70,7 +70,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\LOoSFIND_New.jar;%APP_HOME%\lib\javafx-fxml-17-win.jar;%APP_HOME%\lib\javafx-controls-17-win.jar;%APP_HOME%\lib\javafx-controls-17.jar;%APP_HOME%\lib\javafx-graphics-17-win.jar;%APP_HOME%\lib\javafx-graphics-17.jar;%APP_HOME%\lib\javafx-base-17-win.jar;%APP_HOME%\lib\javafx-base-17.jar;%APP_HOME%\lib\mysql-connector-j-8.0.33.jar;%APP_HOME%\lib\protobuf-java-3.21.9.jar
+set CLASSPATH=%APP_HOME%\lib\LOoSFIND_New.jar;%APP_HOME%\lib\javafx-fxml-23-win.jar;%APP_HOME%\lib\javafx-controls-23-win.jar;%APP_HOME%\lib\javafx-controls-23.jar;%APP_HOME%\lib\javafx-graphics-23-win.jar;%APP_HOME%\lib\javafx-graphics-23.jar;%APP_HOME%\lib\javafx-base-23-win.jar;%APP_HOME%\lib\javafx-base-23.jar;%APP_HOME%\lib\mysql-connector-j-8.0.33.jar;%APP_HOME%\lib\protobuf-java-3.21.9.jar
 
 
 @rem Execute LOoSFIND_New

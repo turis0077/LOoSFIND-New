@@ -9,18 +9,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaPrincipal.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("LOoSFIND - Objetos Perdidos");
-            primaryStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/VistaPrincipal.fxml"));
+        primaryStage.setTitle("LOoSFIND");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
     public static void main(String[] args) {

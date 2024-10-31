@@ -2,26 +2,26 @@ package model;
 
 public class ObjetoPerdido {
 
-    private int id;
     private String tipoObjeto;
     private String color;
-    private double alto;
-    private double ancho;
-    private double largo;
+    private String dimensiones;
+    private String forma;
     private String fecha;
     private String ubicacion;
+    private String estado;
+    private boolean enSecretaria;
 
-    public ObjetoPerdido(String tipoObjeto, String color, double alto, double ancho, double largo, String fecha, String ubicacion) {
+    public ObjetoPerdido(String tipoObjeto, String color, String dimensiones, String forma, String fecha, String ubicacion,
+            String estado, boolean enSecretaria) {
         this.tipoObjeto = tipoObjeto;
         this.color = color;
-        this.alto = alto;
-        this.ancho = ancho;
-        this.largo = largo;
+        this.dimensiones = dimensiones;
+        this.forma = forma;
         this.fecha = fecha;
         this.ubicacion = ubicacion;
+        this.estado = estado;
+        this.enSecretaria = enSecretaria;
     }
-
-    // Getters y setters
 
     public String getTipoObjeto() {
         return tipoObjeto;
@@ -39,28 +39,20 @@ public class ObjetoPerdido {
         this.color = color;
     }
 
-    public double getAlto() {
-        return alto;
+    public String getDimensiones() {
+        return dimensiones;
     }
 
-    public void setAlto(double alto) {
-        this.alto = alto;
+    public void setDimensiones(String dimensiones) {
+        this.dimensiones = dimensiones;
     }
 
-    public double getAncho() {
-        return ancho;
+    public String getForma() {
+        return forma;
     }
 
-    public void setAncho(double ancho) {
-        this.ancho = ancho;
-    }
-
-    public double getLargo() {
-        return largo;
-    }
-
-    public void setLargo(double largo) {
-        this.largo = largo;
+    public void setForma(String forma) {
+        this.forma = forma;
     }
 
     public String getFecha() {
@@ -77,5 +69,35 @@ public class ObjetoPerdido {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public boolean isEnSecretaria() {
+        return enSecretaria;
+    }
+
+    public void setEnSecretaria(boolean enSecretaria) {
+        this.enSecretaria = enSecretaria;
+    }
+
+    @Override
+    public String toString() {
+        return "ObjetoPerdido{" +
+                "tipoObjeto='" + tipoObjeto + '\'' +
+                ", color='" + color + '\'' +
+                ", dimensiones='" + dimensiones + '\'' +
+                ", forma='" + forma + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", enSecretaria=" + enSecretaria +
+                '}';
     }
 }
