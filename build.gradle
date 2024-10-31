@@ -8,8 +8,13 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     implementation 'org.openjfx:javafx-controls:17'
     implementation 'org.openjfx:javafx-fxml:17'
+=======
+    implementation 'org.openjfx:javafx-controls:23'
+    implementation 'org.openjfx:javafx-fxml:23'
+>>>>>>> pollito
     
     implementation 'mysql:mysql-connector-java:8.0.33'
     
@@ -17,7 +22,11 @@ dependencies {
 }
 
 javafx {
+<<<<<<< HEAD
     version = "17"
+=======
+    version = "23"
+>>>>>>> pollito
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
