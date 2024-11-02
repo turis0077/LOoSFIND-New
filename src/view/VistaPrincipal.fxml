@@ -28,7 +28,7 @@
    </ImageView>
     
     <!-- Botón para agregar objetos -->
-    <Button layoutX="513.0" layoutY="93.0" onAction="#addObject" prefHeight="49.0" prefWidth="292.0" style="-fx-background-color: #2F3133; -fx-text-fill: white; -fx-border-color: #9FA9A1;" text="Haz click aqui para agregar un objeto" textFill="WHITE" />
+    <Button layoutX="513.0" layoutY="93.0" onAction="newObject" prefHeight="49.0" prefWidth="292.0" style="-fx-background-color: #2F3133; -fx-text-fill: white; -fx-border-color: #9FA9A1;" text="Haz click aqui para agregar un objeto" textFill="WHITE" />
    <Region layoutX="30.0" layoutY="161.0" prefHeight="462.0" prefWidth="779.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="161.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3133" height="462.0" layoutX="26.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="779.0" />
    <ScrollBar layoutX="784.0" layoutY="158.0" orientation="VERTICAL" prefHeight="462.0" prefWidth="20.0" style="-fx-background-color: #4A514A; -fx-border-color: #9FA9A1;" />

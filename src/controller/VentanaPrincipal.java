@@ -67,11 +67,18 @@ public class VentanaPrincipal {
         objectsTableView.setItems(objectList);
     }
 
+    // Accion para abrir ventana RegistroObjeto
+    public void abrirVentana(Stage primaryStage) throws Exception {
+        parent root = FXMLLoader.load(getClass().getResource(""))
+
+    }
+    
+    
     // Acción al hacer click en el botón "Haz click aqui para agregar un objeto"
     @FXML
     public void addObject(MouseEvent event) {
         // Crear un objeto ficticio para agregar a la tabla (puedes personalizar esto)
-        Object newObject = new Object("Objeto", "Rojo", "Grande", "Cuadrado", "12/10/2024", "Edificio B", "Nuevo", "Secretaría A");
+        Object newObject = new Object("Objeto", "Rojo", "Grande", "Cuadrado", "12/10/2024", "Edificio B", "Nuevo", "Secretaria");
         objectList.add(newObject);
 
         // Mostrar un mensaje de confirmación
