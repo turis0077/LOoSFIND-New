@@ -26,9 +26,12 @@
             <PasswordField fx:id="contrasenaField" promptText="Contraseña" />
         </VBox>
         
-        <!-- Botón de Ingresar -->
-        <Button fx:id="ingresarButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Ingresar" />
+        <!-- Boton para Inicio de sesion -->
+        <Button fx:id="loginButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Ingresar" onAction="#handleLogin" />
         
+        <!-- Boton para registro de usuarios nuevos -->
+        <Button fx:id="registerButton" text="Registrarme" onAction="#handleRegister" layoutX="450" layoutY="300" />
+
     </VBox>
    <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="14.0">
       <image>

@@ -1,6 +1,17 @@
-package com.example.controller;
+package com.controller;
+
+import controller.VentanaRegistroObjeto;
+import service.DatabaseService;
+import service.ObjetosExtraviados;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -10,7 +21,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class VentanaPrincipal {
 
@@ -21,39 +34,45 @@ public class VentanaPrincipal {
     private TextField searchField; // Campo de búsqueda
 
     @FXML
-    private TableView<Object> objectsTableView; // Tabla para mostrar los objetos registrados
+    private TableView<ObjetosExtraviados> objectsTableView; // Tabla para mostrar los objetos registrados
 
     @FXML
-    private TableColumn<Object, String> typeColumn; // Columna de tipo de objeto
+    private TableColumn<ObjetosExtraviados, Integer> idColumn; //columna para el numero de identificacion (no visible)
+    
+    @FXML
+    private TableColumn<ObjetosExtraviados, String> typeColumn; // Columna de tipo de objeto
 
     @FXML
-    private TableColumn<Object, String> colorColumn; // Columna de color
+    private TableColumn<ObjetosExtraviados, String> colorColumn; // Columna de color
 
     @FXML
-    private TableColumn<Object, String> sizeColumn; // Columna de tamano
+    private TableColumn<ObjetosExtraviados, String> sizeColumn; // Columna de tamano
 
     @FXML
-    private TableColumn<Object, String> shapeColumn; // Columna de forma
+    private TableColumn<ObjetosExtraviados, String> shapeColumn; // Columna de forma
 
     @FXML
-    private TableColumn<Object, String> dateColumn; // Columna de fecha
+    private TableColumn<ObjetosExtraviados, String> dateColumn; // Columna de fecha
 
     @FXML
-    private TableColumn<Object, String> locationColumn; // Columna de ubicacion
+    private TableColumn<ObjetosExtraviados, String> locationColumn; // Columna de ubicacion
 
     @FXML
-    private TableColumn<Object, String> estadoColumn; // Columna de estado
+    private TableColumn<ObjetosExtraviados, String> estadoColumn; // Columna de estado
 
     @FXML
-    private TableColumn<Object, String> secretariaColumn; // Columna de secretaria
+    private TableColumn<ObjetosExtraviados, String> secretariaColumn; // Columna de secretaria
 
     // Lista para almacenar los objetos de la tabla
-    private ObservableList<Object> objectList = FXCollections.observableArrayList();
+    private ObservableList<ObjetosExtraviados> objectList = FXCollections.observableArrayList();
 
     // Inicialización de la vista y sus componentes
     @FXML
     public void initialize() {
         // Configurar las columnas con los atributos de la clase Object
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idColumn.setVisible(false); //permite que la columna id no sea visible
+        
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         colorColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
@@ -67,20 +86,51 @@ public class VentanaPrincipal {
         objectsTableView.setItems(objectList);
     }
 
-    // Accion para abrir ventana RegistroObjeto
-    public void abrirVentana(Stage primaryStage) throws Exception {
-        parent root = FXMLLoader.load(getClass().getResource(""))
+    public void cargarDatosDesdeBD() {
+        Connection conexion = null;
 
+        try {
+            conexion = DatabaseService.ConectarBD();
+            String query = "SELECT * FROM objetos_perdidos";
+            PreparedStatement statement = conexion.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+    
+            while (resultSet.next()) {
+                ObjetosExtraviados nuevoObjeto = new ObjetosExtraviados(
+                resultSet.getString("id"),
+                resultSet.getString("tipo_objeto"),
+                resultSet.getString("color"),
+                resultSet.getString("dimensiones"),
+                resultSet.getString("forma"),
+                resultSet.getString("fecha"),
+                resultSet.getString("ubicacion"),
+                resultSet.getString("estado"),
+                resultSet.getBoolean("en_secretaria")
+            );
+            objectList.add(nuevoObjeto);
+        }
+        } catch (SQLException e) {
+            System.out.println("Error al cargar datos: " + e.getMessage());
+        }
+    }
+    
+
+    public void abrirVentana(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/view/VistaRegistroObjeto.fxml"));
+        Parent root = loader.load();
+
+        VentanaRegistroObjeto registroController = loader.getController();
+        registroController.setOnObjectRegistered(this::cargarDatosDesdeBD);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
     
     
     // Acción al hacer click en el botón "Haz click aqui para agregar un objeto"
     @FXML
     public void addObject(MouseEvent event) {
-        // Crear un objeto ficticio para agregar a la tabla (puedes personalizar esto)
-        Object newObject = new Object("Objeto", "Rojo", "Grande", "Cuadrado", "12/10/2024", "Edificio B", "Nuevo", "Secretaria");
-        objectList.add(newObject);
-
         // Mostrar un mensaje de confirmación
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Objeto Agregado");
@@ -95,15 +145,17 @@ public class VentanaPrincipal {
         String query = searchField.getText().toLowerCase();
 
         // Filtrar la lista de objetos según el texto ingresado
-        ObservableList<Object> filteredList = FXCollections.observableArrayList();
-        for (Object obj : objectList) {
-            if (obj.getName().toLowerCase().contains(query) || 
+        ObservableList<ObjetosExtraviados> filteredList = FXCollections.observableArrayList();
+        for (ObjetosExtraviados obj : objectList) {
+            if (obj.getTipobjeto().toLowerCase().contains(query) || 
                 obj.getColor().toLowerCase().contains(query)) {
                 filteredList.add(obj);
             }
         }
 
         // Actualizar la tabla con los resultados filtrados
-        objectTableView.setItems(filteredList);
+        objectsTableView.setItems(filteredList);
     }
+
+
 }

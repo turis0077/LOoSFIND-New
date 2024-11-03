@@ -36,14 +36,15 @@
     <!-- Tabla para mostrar los objetos registrados -->
     <TableView fx:id="objectsTableView" layoutX="27.0" layoutY="158.0" prefHeight="462.0" prefWidth="757.0" style="-fx-background-color: #2F3133; -fx-border-color: #9FA9A1; -fx-text-fill: #9FA9A1;">
         <columns>
-            <TableColumn fx:id="typeColumn" editable="false" prefWidth="92.0" sortable="false" text="Tipo de objeto" />
-            <TableColumn fx:id="colorColumn" editable="false" prefWidth="77.5" sortable="false" text="Color" />
-            <TableColumn fx:id="formColumn" editable="false" prefWidth="93.0" sortable="false" text="Tamano" />
-         <TableColumn fx:id="formColumn" editable="false" prefWidth="104.5" sortable="false" text="Forma" />
-         <TableColumn fx:id="dateColumn" editable="false" prefWidth="99.5" sortable="false" text="Fecha" />
-         <TableColumn fx:id="locationColumn" editable="false" prefWidth="115.0" sortable="false" text="Ubicacion" />
-         <TableColumn fx:id="estadoColumn" editable="false" prefWidth="88.0" sortable="false" text="Estado" />
-         <TableColumn fx:id="SecretariaColumn" editable="false" prefWidth="66.5" sortable="false" text="Secretaria" />
+         <TableColumn fx:id="idColumn" editable="false" prefWidth="20.0" sortable="false" text="id" visible="false" />
+            <TableColumn fx:id="typeColumn" editable="false" prefWidth="114.0" sortable="false" text="Tipo de objeto" />
+            <TableColumn fx:id="colorColumn" editable="false" prefWidth="81.5" sortable="false" text="Color" />
+            <TableColumn fx:id="formColumn" editable="false" prefWidth="94.0" sortable="false" text="Tamano" />
+         <TableColumn fx:id="formColumn" editable="false" prefWidth="102.0" sortable="false" text="Forma" />
+         <TableColumn fx:id="dateColumn" editable="false" prefWidth="102.5" sortable="false" text="Fecha" />
+         <TableColumn fx:id="locationColumn" editable="false" prefWidth="107.0" sortable="false" text="Ubicacion" />
+         <TableColumn fx:id="estadoColumn" editable="false" prefWidth="78.0" sortable="false" text="Estado" />
+         <TableColumn fx:id="SecretariaColumn" editable="false" prefWidth="75.0" sortable="false" text="Secretaria" />
         </columns>
     </TableView>
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1c6129" height="70.0" layoutY="-5.0" stroke="#1e5e29" strokeType="INSIDE" strokeWidth="2.0" width="838.0" AnchorPane.bottomAnchor="576.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

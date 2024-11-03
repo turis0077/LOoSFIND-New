@@ -12,7 +12,7 @@ public class ObjetoPerdido {
     private boolean enSecretaria;
 
     public ObjetoPerdido(String tipoObjeto, String color, String dimensiones, String forma, String fecha, String ubicacion,
-            String estado, boolean enSecretaria) {
+        String estado, boolean enSecretaria) {
         this.tipoObjeto = tipoObjeto;
         this.color = color;
         this.dimensiones = dimensiones;
