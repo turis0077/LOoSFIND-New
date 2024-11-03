@@ -29,7 +29,6 @@
     
     <!-- Botón para agregar objetos -->
    <Button layoutX="513.0" layoutY="93.0" onAction="#addObject" prefHeight="49.0" prefWidth="292.0" style="-fx-background-color: #2F3133; -fx-text-fill: white; -fx-border-color: #9FA9A1;" text="Haz click aquí para agregar un objeto" />
-   
    <Region layoutX="30.0" layoutY="161.0" prefHeight="462.0" prefWidth="779.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="161.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3133" height="462.0" layoutX="26.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="779.0" />
    <ScrollBar layoutX="784.0" layoutY="158.0" orientation="VERTICAL" prefHeight="462.0" prefWidth="20.0" style="-fx-background-color: #4A514A; -fx-border-color: #9FA9A1;" />
@@ -37,6 +36,7 @@
     <!-- Tabla para mostrar los objetos registrados -->
    <TableView fx:id="objectsTableView" layoutX="27.0" layoutY="158.0" prefHeight="462.0" prefWidth="757.0" style="-fx-background-color: #2F3133; -fx-border-color: #9FA9A1; -fx-text-fill: #9FA9A1;">
       <columns>
+         <TableColumn fx:id="idColumn" editable="false" prefWidth="20.0" sortable="false" text="id" visible="false" />
          <TableColumn fx:id="typeColumn" editable="false" prefWidth="92.0" sortable="false" text="Tipo de objeto" />
          <TableColumn fx:id="colorColumn" editable="false" prefWidth="77.5" sortable="false" text="Color" />
          <TableColumn fx:id="dimensionsColumn" editable="false" prefWidth="93.0" sortable="false" text="Dimensiones" />
@@ -51,7 +51,7 @@
 
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1c6129" height="70.0" layoutY="-5.0" stroke="#1e5e29" strokeType="INSIDE" strokeWidth="2.0" width="838.0" AnchorPane.bottomAnchor="576.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     
-    <Label layoutX="20.0" layoutY="21.0" style="-fx-text-fill: white; -fx-font-size: 24;" text="LOoSFIND" />
+   <Label layoutX="20.0" layoutY="21.0" style="-fx-text-fill: white; -fx-font-size: 24;" text="LOoSFIND" />
     
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3133" height="49.0" layoutX="26.0" layoutY="93.0" stroke="#9fa9a1" strokeType="INSIDE" width="475.0" />
    <ImageView accessibleRole="BUTTON" fitHeight="26.0" fitWidth="20.0" layoutX="42.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">

@@ -1,14 +1,14 @@
 package service;
 
-import model.ObjetoPerdido;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import model.ObjetoPerdido;
 
 public class DatabaseService {
 
@@ -44,19 +44,20 @@ public class DatabaseService {
     }
 
     public void registrarObjeto(ObjetoPerdido objeto) {
-        String query = "INSERT INTO objetos_perdidos (tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO objetos_perdidos (id, tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     
         try (Connection con = ConectarBD();
              PreparedStatement pst = con.prepareStatement(query)) {
     
-            pst.setString(1, objeto.getTipoObjeto());
-            pst.setString(2, objeto.getColor());
-            pst.setString(3, objeto.getDimensiones());
-            pst.setString(4, objeto.getForma());
-            pst.setDate(5, java.sql.Date.valueOf(objeto.getFecha()));
-            pst.setString(6, objeto.getUbicacion());
-            pst.setString(7, objeto.getEstado());
-            pst.setBoolean(8, objeto.isEnSecretaria());
+            pst.setString(1, objeto.getId());
+            pst.setString(2, objeto.getTipoObjeto());
+            pst.setString(3, objeto.getColor());
+            pst.setString(4, objeto.getDimensiones());
+            pst.setString(5, objeto.getForma());
+            pst.setDate(6, java.sql.Date.valueOf(objeto.getFecha()));
+            pst.setString(7, objeto.getUbicacion());
+            pst.setString(8, objeto.getEstado());
+            pst.setBoolean(9, objeto.isEnSecretaria());
     
             pst.executeUpdate();
             System.out.println("Objeto registrado exitosamente: " + objeto);
@@ -86,6 +87,7 @@ public class DatabaseService {
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
                     objeto = new ObjetoPerdido(
+                            rs.getString("id"),
                             rs.getString("tipo_objeto"),
                             rs.getString("color"),
                             rs.getString("alto"),
@@ -106,7 +108,7 @@ public class DatabaseService {
 
     public List<ObjetoPerdido> obtenerTodosLosObjetos() {
         List<ObjetoPerdido> objetos = new ArrayList<>();
-        String query = "SELECT tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria FROM objetos_perdidos";
+        String query = "SELECT id, tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria FROM objetos_perdidos";
     
         try (Connection con = ConectarBD();
              PreparedStatement pst = con.prepareStatement(query);
@@ -114,6 +116,7 @@ public class DatabaseService {
     
             while (rs.next()) {
                 ObjetoPerdido objeto = new ObjetoPerdido(
+                        rs.getString("id"),
                         rs.getString("tipo_objeto"),
                         rs.getString("color"),
                         rs.getString("dimensiones"),

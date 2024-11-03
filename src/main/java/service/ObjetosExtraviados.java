@@ -12,12 +12,12 @@ public class ObjetosExtraviados {
         this.databaseService = new DatabaseService();
     }
 
-    // Método para registrar un objeto perdido
+    // Metodo para registrar un objeto perdido
     public void registrarObjeto(ObjetoPerdido objeto) {
         databaseService.registrarObjeto(objeto);
     }
 
-    // Método para obtener todos los objetos perdidos
+    // Metodo para obtener todos los objetos perdidos
     public List<ObjetoPerdido> obtenerTodosLosObjetos() {
         return databaseService.obtenerTodosLosObjetos();
     }

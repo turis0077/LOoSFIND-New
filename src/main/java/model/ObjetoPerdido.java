@@ -2,6 +2,7 @@ package model;
 
 public class ObjetoPerdido {
 
+    private String id;
     private String tipoObjeto;
     private String color;
     private String dimensiones;
@@ -11,8 +12,9 @@ public class ObjetoPerdido {
     private String estado;
     private boolean enSecretaria;
 
-    public ObjetoPerdido(String tipoObjeto, String color, String dimensiones, String forma, String fecha, String ubicacion,
+    public ObjetoPerdido(String id, String tipoObjeto, String color, String dimensiones, String forma, String fecha, String ubicacion,
         String estado, boolean enSecretaria) {
+        this.id = id;
         this.tipoObjeto = tipoObjeto;
         this.color = color;
         this.dimensiones = dimensiones;
@@ -21,6 +23,14 @@ public class ObjetoPerdido {
         this.ubicacion = ubicacion;
         this.estado = estado;
         this.enSecretaria = enSecretaria;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTipoObjeto() {
@@ -99,5 +109,15 @@ public class ObjetoPerdido {
                 ", estado='" + estado + '\'' +
                 ", enSecretaria=" + enSecretaria +
                 '}';
+    }
+
+    //Metodo encargado de generar un id aleatorio
+    public void idUnicoObjeto() {
+        if (tipoObjeto != null && !tipoObjeto.isEmpty() && fecha != null) {
+            String safeTipoObjeto = tipoObjeto.length() >= 3 ? tipoObjeto.substring(0, 3) : tipoObjeto + "XX".substring(0, 3 - tipoObjeto.length());
+            this.id = safeTipoObjeto + fecha.replace("-", "");  // Concatenar directamente para formar el ID
+        } else {
+            throw new IllegalArgumentException("Tipo de objeto debe tener al menos 1 caracter y la fecha no debe ser nula.");
+        }
     }
 }

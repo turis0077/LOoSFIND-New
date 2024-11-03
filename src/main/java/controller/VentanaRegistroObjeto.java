@@ -11,6 +11,9 @@ import service.DatabaseService;
 public class VentanaRegistroObjeto {
 
     @FXML
+    private TextField idField;
+    
+    @FXML
     private TextField tipoObjetoField;
 
     @FXML
@@ -38,6 +41,7 @@ public class VentanaRegistroObjeto {
     private Button registrarButton;
 
     private DatabaseService databaseService = new DatabaseService();
+    private String id;
 
     @FXML
     private void initialize() {
@@ -56,9 +60,7 @@ public class VentanaRegistroObjeto {
                 String estado = estadoField.getText();
                 boolean enSecretaria = enSecretariaCheckbox.isSelected();
 
-                ObjetoPerdido nuevoObjeto = new ObjetoPerdido(tipoObjeto, color, tamano, forma, fecha, ubicacion,
-                        estado,
-                        enSecretaria);
+                ObjetoPerdido nuevoObjeto = new ObjetoPerdido(id, tipoObjeto, color, tamano, forma, fecha, ubicacion,estado,enSecretaria);
 
                 databaseService.registrarObjeto(nuevoObjeto);
 
@@ -82,6 +84,7 @@ public class VentanaRegistroObjeto {
     }
 
     private void limpiarCampos() {
+        idField.clear();
         tipoObjetoField.clear();
         colorField.clear();
         dimensionesField.clear();
