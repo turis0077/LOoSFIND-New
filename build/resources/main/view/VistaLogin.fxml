@@ -10,10 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2C3A38;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VentanaLogin">
+   <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.39" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../images/UVGforest.jpg" />
+      </image>
+   </ImageView>
         
     <!-- Logo y título de la aplicación -->
     <Label layoutX="64.0" layoutY="18.0" prefHeight="42.0" prefWidth="137.0" style="-fx-text-fill: white; -fx-font-size: 24;" text="LOoSFIND" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="399.0" AnchorPane.topAnchor="18.0" />
-   <ImageView fitHeight="42.0" fitWidth="38.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
     
     <VBox alignment="CENTER" layoutX="206.0" layoutY="75.0" maxWidth="400" spacing="10" style="-fx-background-color: #2F3133; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10;">
         <Label style="-fx-font-size: 18px; -fx-text-fill: white;" text="Login" />
@@ -28,10 +32,10 @@
         </VBox>
         
         <!-- Boton para Inicio de sesion -->
-        <Button fx:id="loginButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Ingresar" onAction="#accesoMenuPrincipal" />
+        <Button fx:id="loginButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" onAction="#accesoMenuPrincipal" text="Ingresar" />
         
         <!-- Boton para registro de usuarios nuevos -->
-        <Button fx:id="registerButton" text="Registrarme" onAction="#openRegisterWindow" layoutX="450" layoutY="300" />
+        <Button fx:id="registerButton" layoutX="450" layoutY="300" onAction="#openRegisterWindow" text="Registrarme" />
 
     </VBox>
    <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="14.0">
