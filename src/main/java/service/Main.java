@@ -10,6 +10,7 @@ public class Main extends Application {
 
     @Override
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaPrincipal.fxml"));
@@ -29,6 +30,13 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 >>>>>>> pollito
+=======
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/VistaLogin.fxml"));
+        primaryStage.setTitle("LOoSFIND");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+>>>>>>> eevee
     }
 
     public static void main(String[] args) {
