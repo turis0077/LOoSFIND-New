@@ -7,10 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< Updated upstream
 <AnchorPane prefHeight="627.0" prefWidth="828.0" style="-fx-background-color: #2E3B40;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23" fx:controller="controller.VentanaRegistroObjeto">
     
     <VBox alignment="CENTER" layoutX="134.0" layoutY="47.0" maxWidth="560.0" prefHeight="533.0" prefWidth="560.0" spacing="10" style="-fx-background-color: #2F3133; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 1; -fx-border-color: #2D3E35; -fx-border-width: 2;">
         <!-- Título -->
+=======
+<AnchorPane prefHeight="627.0" prefWidth="828.0" style="-fx-background-color: #2E3B40;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+    
+    <VBox alignment="CENTER" layoutX="134.0" layoutY="47.0" maxWidth="560.0" prefHeight="533.0" prefWidth="560.0" spacing="10" style="-fx-background-color: #2F3133; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 1; -fx-border-color: #2D3E35; -fx-border-width: 2;">
+>>>>>>> Stashed changes
         <Label style="-fx-font-size: 18px; -fx-text-fill: white;" text="Nuevo Objeto:" />
         <Label style="-fx-text-fill: white;" text="Ingresa los datos que se te solicitan para describir al objeto que encontraste o perdiste:" />
         
@@ -21,12 +27,18 @@
             <Label style="-fx-text-fill: white;" text="Color:" />
             <TextField fx:id="colorField" promptText="Color" />
             
+<<<<<<< Updated upstream
             <Label style="-fx-text-fill: white;" text="Dimensiones:" />
             <TextField fx:id="dimensionesField" promptText="Dimensiones" />
+=======
+            <Label style="-fx-text-fill: white;" text="Tamaño:" />
+            <TextField fx:id="tamanoField" promptText="Tamaño" />
+>>>>>>> Stashed changes
             
             <Label style="-fx-text-fill: white;" text="Forma:" />
             <TextField fx:id="formaField" promptText="Forma" />
             
+<<<<<<< Updated upstream
             <Label style="-fx-text-fill: white;" text="Fecha: (YYYY-MM-DD)" />
             <TextField fx:id="fechaField" promptText="Fecha" />
             
@@ -35,11 +47,28 @@
             
             <Label style="-fx-text-fill: white;" text="Estado:" />
             <TextField fx:id="estadoField" promptText="Estado" />
+=======
+            <Label style="-fx-text-fill: white;" text="Fecha:" />
+            <TextField fx:id="fechaField" promptText="Fecha" />
+            
+            <Label style="-fx-text-fill: white;" text="Lugar donde fue encontrado o perdido:" />
+            <TextField fx:id="lugarField" promptText="Lugar" />
+>>>>>>> Stashed changes
             
             <Label style="-fx-text-fill: white;" text="¿Ya está en secretaría? (marca la casilla si ese es el caso)" />
             <CheckBox fx:id="enSecretariaCheckbox" />
         </VBox>
         
+<<<<<<< Updated upstream
         <Button fx:id="registrarButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar Objeto Nuevo" onAction="#registrarObjeto"/>
     </VBox>
 </AnchorPane>
+=======
+        <Button fx:id="registrarButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar Objeto Nuevo" />
+    </VBox>
+    
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+</AnchorPane>
+>>>>>>> Stashed changes
