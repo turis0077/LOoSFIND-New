@@ -5,38 +5,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import controller.VentanaLogin;
+import java.io.IOException;  // Importación de IOException
 
 public class Main extends Application {
 
     @Override
-<<<<<<< HEAD
-<<<<<<< HEAD
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaPrincipal.fxml"));
+            // Cargar el archivo FXML y obtener el controlador
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaLogin.fxml"));
             Parent root = loader.load();
+            
+            // Obtener el controlador de VentanaLogin y asignar el primaryStage
+            VentanaLogin loginController = loader.getController();
+            loginController.setPrimaryStage(primaryStage);
 
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("LOoSFIND - Objetos Perdidos");
+            primaryStage.setTitle("LOoSFIND");
+            primaryStage.setScene(new Scene(root));
             primaryStage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-=======
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/VistaPrincipal.fxml"));
-        primaryStage.setTitle("LOoSFIND");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
->>>>>>> pollito
-=======
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/VistaLogin.fxml"));
-        primaryStage.setTitle("LOoSFIND");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
->>>>>>> eevee
     }
 
     public static void main(String[] args) {

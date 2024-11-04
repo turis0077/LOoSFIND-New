@@ -2,33 +2,7 @@ package model;
 
 public class ObjetoPerdido {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private int id;
-    private String tipoObjeto;
-    private String color;
-    private double alto;
-    private double ancho;
-    private double largo;
-    private String fecha;
-    private String ubicacion;
-
-    public ObjetoPerdido(String tipoObjeto, String color, double alto, double ancho, double largo, String fecha, String ubicacion) {
-        this.tipoObjeto = tipoObjeto;
-        this.color = color;
-        this.alto = alto;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.fecha = fecha;
-        this.ubicacion = ubicacion;
-    }
-
-    // Getters y setters
-
-=======
-=======
     private String id;
->>>>>>> eevee
     private String tipoObjeto;
     private String color;
     private String dimensiones;
@@ -38,14 +12,9 @@ public class ObjetoPerdido {
     private String estado;
     private boolean enSecretaria;
 
-<<<<<<< HEAD
-    public ObjetoPerdido(String tipoObjeto, String color, String dimensiones, String forma, String fecha, String ubicacion,
-            String estado, boolean enSecretaria) {
-=======
     public ObjetoPerdido(String id, String tipoObjeto, String color, String dimensiones, String forma, String fecha, String ubicacion,
         String estado, boolean enSecretaria) {
         this.id = id;
->>>>>>> eevee
         this.tipoObjeto = tipoObjeto;
         this.color = color;
         this.dimensiones = dimensiones;
@@ -56,9 +25,6 @@ public class ObjetoPerdido {
         this.enSecretaria = enSecretaria;
     }
 
-<<<<<<< HEAD
->>>>>>> pollito
-=======
     public String getId() {
         return id;
     }
@@ -67,7 +33,6 @@ public class ObjetoPerdido {
         this.id = id;
     }
 
->>>>>>> eevee
     public String getTipoObjeto() {
         return tipoObjeto;
     }
@@ -84,33 +49,6 @@ public class ObjetoPerdido {
         this.color = color;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public double getAlto() {
-        return alto;
-    }
-
-    public void setAlto(double alto) {
-        this.alto = alto;
-    }
-
-    public double getAncho() {
-        return ancho;
-    }
-
-    public void setAncho(double ancho) {
-        this.ancho = ancho;
-    }
-
-    public double getLargo() {
-        return largo;
-    }
-
-    public void setLargo(double largo) {
-        this.largo = largo;
-=======
-=======
->>>>>>> eevee
     public String getDimensiones() {
         return dimensiones;
     }
@@ -125,10 +63,6 @@ public class ObjetoPerdido {
 
     public void setForma(String forma) {
         this.forma = forma;
-<<<<<<< HEAD
->>>>>>> pollito
-=======
->>>>>>> eevee
     }
 
     public String getFecha() {
@@ -146,11 +80,6 @@ public class ObjetoPerdido {
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> eevee
 
     public String getEstado() {
         return estado;
@@ -181,9 +110,6 @@ public class ObjetoPerdido {
                 ", enSecretaria=" + enSecretaria +
                 '}';
     }
-<<<<<<< HEAD
->>>>>>> pollito
-=======
 
     //Metodo encargado de generar un id aleatorio
     public void idUnicoObjeto() {
@@ -194,5 +120,4 @@ public class ObjetoPerdido {
             throw new IllegalArgumentException("Tipo de objeto debe tener al menos 1 caracter y la fecha no debe ser nula.");
         }
     }
->>>>>>> eevee
 }

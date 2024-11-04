@@ -1,65 +1,19 @@
 package controller;
 
 import javafx.fxml.FXML;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import javafx.scene.control.TextField;
-import model.ObjetoPerdido;
-import service.ObjetosExtraviados;
-=======
-=======
->>>>>>> eevee
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import model.ObjetoPerdido;
 import service.DatabaseService;
 
-<<<<<<< HEAD
->>>>>>> pollito
-=======
->>>>>>> eevee
 
 public class VentanaRegistroObjeto {
 
     @FXML
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private TextField nombreObjeto;
-
-    @FXML
-    private TextField descripcionObjeto;
-
-    @FXML
-    private TextField altoField;
-
-    @FXML
-    private TextField anchoField;
-
-    @FXML
-    private TextField largoField;
-
-    @FXML
-    private TextField ubicacionObjeto;
-
-    @FXML
-    public void registrarObjeto() {
-        String nombre = nombreObjeto.getText();
-        String descripcion = descripcionObjeto.getText();
-        double alto = Double.parseDouble(altoField.getText()); // Convertir a double
-        double ancho = Double.parseDouble(anchoField.getText()); // Convertir a double
-        double largo = Double.parseDouble(largoField.getText()); // Convertir a double
-        String ubicacion = ubicacionObjeto.getText();
-
-        ObjetoPerdido objeto = new ObjetoPerdido(nombre, descripcion, alto, ancho, largo, "", ubicacion);
-        ObjetosExtraviados servicioObjetos = new ObjetosExtraviados();
-        servicioObjetos.registrarObjeto(objeto);
-=======
-=======
     private TextField idField;
     
     @FXML
->>>>>>> eevee
     private TextField tipoObjetoField;
 
     @FXML
@@ -87,10 +41,7 @@ public class VentanaRegistroObjeto {
     private Button registrarButton;
 
     private DatabaseService databaseService = new DatabaseService();
-<<<<<<< HEAD
-=======
     private String id;
->>>>>>> eevee
 
     @FXML
     private void initialize() {
@@ -109,13 +60,7 @@ public class VentanaRegistroObjeto {
                 String estado = estadoField.getText();
                 boolean enSecretaria = enSecretariaCheckbox.isSelected();
 
-<<<<<<< HEAD
-                ObjetoPerdido nuevoObjeto = new ObjetoPerdido(tipoObjeto, color, tamano, forma, fecha, ubicacion,
-                        estado,
-                        enSecretaria);
-=======
                 ObjetoPerdido nuevoObjeto = new ObjetoPerdido(id, tipoObjeto, color, tamano, forma, fecha, ubicacion,estado,enSecretaria);
->>>>>>> eevee
 
                 databaseService.registrarObjeto(nuevoObjeto);
 
@@ -139,10 +84,7 @@ public class VentanaRegistroObjeto {
     }
 
     private void limpiarCampos() {
-<<<<<<< HEAD
-=======
         idField.clear();
->>>>>>> eevee
         tipoObjetoField.clear();
         colorField.clear();
         dimensionesField.clear();
@@ -151,9 +93,5 @@ public class VentanaRegistroObjeto {
         estadoField.clear();
         ubicacionField.clear();
         enSecretariaCheckbox.setSelected(false);
-<<<<<<< HEAD
->>>>>>> pollito
-=======
->>>>>>> eevee
     }
 }

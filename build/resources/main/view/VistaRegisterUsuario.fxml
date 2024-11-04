@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="543.0" style="-fx-background-color: #2F3133;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="543.0" style="-fx-background-color: #2F3133;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VentanaRegisterUsuario">
    <children>
       <VBox alignment="CENTER" layoutX="189.0" layoutY="118.0" prefHeight="164.0" prefWidth="180.0" spacing="10" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="118.0">
          <children>

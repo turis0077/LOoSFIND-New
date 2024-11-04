@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-public class VentanaLogin {
-    
-}
-=======
 package controller;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import service.DatabaseService;
+
+import java.io.IOException;
 
 public class VentanaLogin {
 
@@ -26,7 +20,7 @@ public class VentanaLogin {
 
     @FXML
     private PasswordField passwordField;
-    
+
     @FXML
     private Button loginButton;
 
@@ -34,34 +28,55 @@ public class VentanaLogin {
     private Button registerButton;
 
     private Stage primaryStage;
-    
-    // Mapa para almacenar usuarios
-    private Map<String, String> users = new HashMap<>();
+
+    private DatabaseService dbService = new DatabaseService(); // Asegura inicialización aquí
 
     public VentanaLogin() {
-        // Crear un usuario predeterminado para acceso inmediato
-        users.put("devCGS", "uvg12345"); // Usuario predeterminado para el desarrollador
+        // Constructor vacío
     }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
-    // Métodos para manejar eventos
     @FXML
     public void loginButton() {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
 
-        // Verificar si las credenciales coinciden con un usuario registrado
-        if (users.containsKey(username) && users.get(username).equals(password)) {
-            accesoMenuPrincipal(); // Abrir la ventana principal si las credenciales son correctas
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert("Campos vacíos", "Por favor, completa todos los campos", Alert.AlertType.WARNING);
+            return;
+        }
+
+        // Verificar si el usuario y contraseña existen en la base de datos
+        boolean accesoPermitido = dbService.verificarCredenciales(username, password);
+
+        if (accesoPermitido) {
+            accesoMenuPrincipal();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error de inicio de sesión");
-            alert.setHeaderText("Credenciales incorrectas");
-            alert.setContentText("El nombre de usuario o la contraseña son incorrectos.");
-            alert.showAndWait();
+            showAlert("Error de inicio de sesión", "El nombre de usuario o la contraseña son incorrectos.", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public void accesoMenuPrincipal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaPrincipal.fxml"));
+            Parent mainRoot = loader.load();
+            primaryStage.setScene(new Scene(mainRoot));
+            primaryStage.setTitle("Ventana Principal");
+            primaryStage.show();
+        } catch (IOException e) {
+            showAlert("Error", "Error al cargar la ventana principal", Alert.AlertType.ERROR);
+            e.printStackTrace();
         }
     }
 
@@ -70,42 +85,18 @@ public class VentanaLogin {
         openRegisterWindow();
     }
 
-    public void accesoMenuPrincipal() {
-        try {
-            // Cargar y mostrar la ventana principal
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaPrincipal.fxml"));
-            Parent mainRoot = loader.load();
-            VentanaPrincipal principalController = loader.getController();
-            primaryStage.setScene(new Scene(mainRoot));
-            primaryStage.setTitle("Ventana Principal");
-            primaryStage.show();
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error al cargar la ventana principal");
-            alert.setContentText("No se pudo cargar la ventana principal. Por favor, inténtalo de nuevo.");
-            alert.showAndWait();
-            e.printStackTrace();
-        }
-    }
-
     public void openRegisterWindow() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VistaRegistro.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaRegisterUsuario.fxml"));
             Parent registerRoot = loader.load();
-            VentanaRegisterUsuario registerUserController = loader.getController();
             
             Stage registerStage = new Stage();
             registerStage.setTitle("Registro de usuario");
             registerStage.setScene(new Scene(registerRoot));
             registerStage.show();
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error al cargar la ventana de registro");
-            alert.setContentText("No se pudo cargar la ventana de registro. Por favor, inténtalo de nuevo.");
-            alert.showAndWait();
+            showAlert("Error", "Error al cargar la ventana de registro", Alert.AlertType.ERROR);
+            e.printStackTrace();
         }
     }
 }
->>>>>>> eevee
