@@ -67,7 +67,10 @@ public class VentanaPrincipal {
 
     @FXML
     private TableColumn<ObjetoPerdido, Boolean> secretariaColumn;
+<<<<<<< HEAD
     
+>>>>>>> pollito
+=======
 >>>>>>> pollito
 
     @FXML
@@ -81,13 +84,26 @@ public class VentanaPrincipal {
         cargarDatosEnTabla();
     }
 
+    @FXML
+    private void buscar() {
+        System.out.println("Buscando: " + searchField.getText().trim()); // Verificación en consola
+        String palabraClave = searchField.getText().trim();
+        if (!palabraClave.isEmpty()) {
+            DatabaseService dbService = new DatabaseService();
+            List<ObjetoPerdido> resultados = dbService.buscarObjetos(palabraClave);
+            objectsTableView.getItems().setAll(resultados);
+        } else {
+            cargarDatosEnTabla(); // Cargar todos los objetos si el campo de búsqueda está vacío
+        }
+    }
+
     private void configurarColumnas() {
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("tipoObjeto"));
         colorColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
+        dimensionsColumn.setCellValueFactory(new PropertyValueFactory<>("dimensiones"));
         formColumn.setCellValueFactory(new PropertyValueFactory<>("forma"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         locationColumn.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
-        dimensionsColumn.setCellValueFactory(new PropertyValueFactory<>("dimensiones"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
         secretariaColumn.setCellValueFactory(new PropertyValueFactory<>("enSecretaria"));
     }
