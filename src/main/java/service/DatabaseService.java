@@ -53,7 +53,7 @@ public class DatabaseService {
             pst.setString(2, objeto.getColor());
             pst.setString(3, objeto.getDimensiones());
             pst.setString(4, objeto.getForma());
-            pst.setDate(5, java.sql.Date.valueOf(objeto.getFecha()));  // Asegúrate de que el formato de fecha es correcto
+            pst.setDate(5, java.sql.Date.valueOf(objeto.getFecha()));
             pst.setString(6, objeto.getUbicacion());
             pst.setString(7, objeto.getEstado());
             pst.setBoolean(8, objeto.isEnSecretaria());
@@ -69,7 +69,7 @@ public class DatabaseService {
     // Método para obtener todos los objetos perdidos
     public List<ObjetoPerdido> obtenerTodosLosObjetos() {
         List<ObjetoPerdido> objetos = new ArrayList<>();
-        String query = "SELECT tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria FROM objetos_perdidos";
+        String query = "SELECT id, tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria FROM objetos_perdidos";
 
         try (Connection con = ConectarBD();
              PreparedStatement pst = con.prepareStatement(query);
@@ -77,6 +77,7 @@ public class DatabaseService {
 
             while (rs.next()) {
                 ObjetoPerdido objeto = new ObjetoPerdido(
+                        rs.getString("id"),
                         rs.getString("tipo_objeto"),
                         rs.getString("color"),
                         rs.getString("dimensiones"),
@@ -117,6 +118,7 @@ public class DatabaseService {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs.next()) {
                     ObjetoPerdido objeto = new ObjetoPerdido(
+                            rs.getString("id"),
                             rs.getString("tipo_objeto"),
                             rs.getString("color"),
                             rs.getString("dimensiones"),
@@ -134,5 +136,46 @@ public class DatabaseService {
             e.printStackTrace();
         }
         return objetos;
+    }
+
+    // Método para verificar las credenciales de un usuario
+    public boolean verificarCredenciales(String nombreUsuario, String contrasena) {
+        String query = "SELECT * FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?";
+
+        try (Connection con = ConectarBD();
+             PreparedStatement pst = con.prepareStatement(query)) {
+
+            pst.setString(1, nombreUsuario);
+            pst.setString(2, contrasena);
+
+            try (ResultSet rs = pst.executeQuery()) {
+                return rs.next();  // Retorna true si hay un usuario con las credenciales correctas
+            }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+        }
+    }
+
+
+    // Método para registrar un nuevo usuario
+    public boolean registrarUsuario(String nombreUsuario, String contrasena) {
+        String query = "INSERT INTO usuarios (nombre_usuario, contrasena) VALUES (?, ?)";
+
+        try (Connection con = ConectarBD();
+             PreparedStatement pst = con.prepareStatement(query)) {
+
+            pst.setString(1, nombreUsuario);
+            pst.setString(2, contrasena);
+
+            pst.executeUpdate();
+            System.out.println("Usuario registrado exitosamente: " + nombreUsuario);
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Error al registrar usuario: " + e.getMessage());
+            return false;
+        }
     }
 }
