@@ -9,8 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2C3A38;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
-        <!-- Logo y título de la aplicación -->
+<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2C3A38;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VentanaLogin">
+        
+    <!-- Logo y título de la aplicación -->
     <Label layoutX="64.0" layoutY="18.0" prefHeight="42.0" prefWidth="137.0" style="-fx-text-fill: white; -fx-font-size: 24;" text="LOoSFIND" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="399.0" AnchorPane.topAnchor="18.0" />
    <ImageView fitHeight="42.0" fitWidth="38.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
     
@@ -27,10 +28,10 @@
         </VBox>
         
         <!-- Boton para Inicio de sesion -->
-        <Button fx:id="loginButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Ingresar" onAction="#handleLogin" />
+        <Button fx:id="loginButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Ingresar" onAction="#accesoMenuPrincipal" />
         
         <!-- Boton para registro de usuarios nuevos -->
-        <Button fx:id="registerButton" text="Registrarme" onAction="#handleRegister" layoutX="450" layoutY="300" />
+        <Button fx:id="registerButton" text="Registrarme" onAction="#openRegisterWindow" layoutX="450" layoutY="300" />
 
     </VBox>
    <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="14.0">
@@ -38,9 +39,4 @@
          <Image url="@../../resources/images/LooseFind%20blanco.png" />
       </image>
    </ImageView>
-    
-    <!-- Hoja de estilos externa -->
-    <stylesheets>
-        <URL value="@styles.css" />
-    </stylesheets>
 </AnchorPane>

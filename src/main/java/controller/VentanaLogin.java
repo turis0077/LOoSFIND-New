@@ -16,18 +16,17 @@ public class VentanaLogin {
     @FXML
     private Button loginButton;
 
+    @FXML
+    private Button registerButton;
+
     private Stage primaryStage;
     
-    public VentanaLogin(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public VentanaLogin() {
     }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-
-    @FXML
-    private Button registerButton;
 
     // Métodos para manejar eventos
     @FXML
