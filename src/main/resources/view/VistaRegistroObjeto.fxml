@@ -27,7 +27,7 @@
             <Label style="-fx-text-fill: white;" text="Forma:" />
             <TextField fx:id="formaField" promptText="Forma" />
             
-            <Label style="-fx-text-fill: white;" text="Fecha:" />
+            <Label style="-fx-text-fill: white;" text="Fecha: (YYYY-MM-DD)" />
             <TextField fx:id="fechaField" promptText="Fecha" />
             
             <Label style="-fx-text-fill: white;" text="Lugar donde fue encontrado o perdido:" />
