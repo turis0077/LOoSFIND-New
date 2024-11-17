@@ -36,6 +36,10 @@
         </image>
     </ImageView>
 
+    <Button layoutX="700.0" layoutY="104.0" onAction="#actualizarDatos" prefHeight="26.0" prefWidth="100.0" 
+        style="-fx-background-color: #2F3133; -fx-text-fill: white; -fx-border-color: #9FA9A1;" text="Actualizar" />
+
+
     <!-- Botón para agregar objetos -->
     <Button layoutX="513.0" layoutY="93.0" onAction="#addObject" prefHeight="49.0" prefWidth="292.0" style="-fx-background-color: #2F3133; -fx-text-fill: white; -fx-border-color: #9FA9A1;" text="Haz click aquí para agregar un objeto" />
 

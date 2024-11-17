@@ -47,7 +47,7 @@ public class DatabaseService {
         String query = "INSERT INTO objetos_perdidos (tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection con = ConectarBD();
-             PreparedStatement pst = con.prepareStatement(query)) {
+                PreparedStatement pst = con.prepareStatement(query)) {
 
             pst.setString(1, objeto.getTipoObjeto());
             pst.setString(2, objeto.getColor());
@@ -72,8 +72,8 @@ public class DatabaseService {
         String query = "SELECT id, tipo_objeto, color, dimensiones, forma, fecha, ubicacion, estado, en_secretaria FROM objetos_perdidos";
 
         try (Connection con = ConectarBD();
-             PreparedStatement pst = con.prepareStatement(query);
-             ResultSet rs = pst.executeQuery()) {
+                PreparedStatement pst = con.prepareStatement(query);
+                ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
                 ObjetoPerdido objeto = new ObjetoPerdido(
@@ -85,8 +85,7 @@ public class DatabaseService {
                         rs.getDate("fecha").toString(),
                         rs.getString("ubicacion"),
                         rs.getString("estado"),
-                        rs.getBoolean("en_secretaria")
-                );
+                        rs.getBoolean("en_secretaria"));
                 objetos.add(objeto);
             }
 
@@ -100,15 +99,15 @@ public class DatabaseService {
     public List<ObjetoPerdido> buscarObjetos(String palabraClave) {
         List<ObjetoPerdido> objetos = new ArrayList<>();
         String query = "SELECT * FROM objetos_perdidos WHERE " +
-                       "tipo_objeto LIKE ? OR " +
-                       "color LIKE ? OR " +
-                       "dimensiones LIKE ? OR " +
-                       "forma LIKE ? OR " +
-                       "ubicacion LIKE ? OR " +
-                       "estado LIKE ?";
+                "tipo_objeto LIKE ? OR " +
+                "color LIKE ? OR " +
+                "dimensiones LIKE ? OR " +
+                "forma LIKE ? OR " +
+                "ubicacion LIKE ? OR " +
+                "estado LIKE ?";
 
         try (Connection con = ConectarBD();
-             PreparedStatement pst = con.prepareStatement(query)) {
+                PreparedStatement pst = con.prepareStatement(query)) {
 
             String keyword = "%" + palabraClave + "%";
             for (int i = 1; i <= 6; i++) {
@@ -126,8 +125,7 @@ public class DatabaseService {
                             rs.getDate("fecha").toString(),
                             rs.getString("ubicacion"),
                             rs.getString("estado"),
-                            rs.getBoolean("en_secretaria")
-                    );
+                            rs.getBoolean("en_secretaria"));
                     objetos.add(objeto);
                 }
             }
@@ -143,28 +141,27 @@ public class DatabaseService {
         String query = "SELECT * FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?";
 
         try (Connection con = ConectarBD();
-             PreparedStatement pst = con.prepareStatement(query)) {
+                PreparedStatement pst = con.prepareStatement(query)) {
 
             pst.setString(1, nombreUsuario);
             pst.setString(2, contrasena);
 
             try (ResultSet rs = pst.executeQuery()) {
-                return rs.next();  // Retorna true si hay un usuario con las credenciales correctas
+                return rs.next(); // Retorna true si hay un usuario con las credenciales correctas
             }
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
-
 
     // Método para registrar un nuevo usuario
     public boolean registrarUsuario(String nombreUsuario, String contrasena) {
         String query = "INSERT INTO usuarios (nombre_usuario, contrasena) VALUES (?, ?)";
 
         try (Connection con = ConectarBD();
-             PreparedStatement pst = con.prepareStatement(query)) {
+                PreparedStatement pst = con.prepareStatement(query)) {
 
             pst.setString(1, nombreUsuario);
             pst.setString(2, contrasena);
