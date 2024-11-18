@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
@@ -48,9 +49,20 @@ public class VentanaPrincipal {
     private TextField searchField;
 
     @FXML
+    private Button actualizarObjetosButton; // Referencia al botón de actualización
+
+    private final DatabaseService databaseService = new DatabaseService();
+
+    @FXML
     public void initialize() {
         configurarColumnas();
         cargarDatosEnTabla();
+
+        // Vincular el botón "Actualizar objetos" al método que actualiza la tabla
+        actualizarObjetosButton.setOnAction(event -> {
+            cargarDatosEnTabla();
+            System.out.println("Tabla actualizada con datos recientes.");
+        });
     }
 
     @FXML
@@ -58,8 +70,7 @@ public class VentanaPrincipal {
         System.out.println("Buscando: " + searchField.getText().trim()); // Verificación en consola
         String palabraClave = searchField.getText().trim();
         if (!palabraClave.isEmpty()) {
-            DatabaseService dbService = new DatabaseService();
-            List<ObjetoPerdido> resultados = dbService.buscarObjetos(palabraClave);
+            List<ObjetoPerdido> resultados = databaseService.buscarObjetos(palabraClave);
             objectsTableView.getItems().setAll(resultados);
         } else {
             cargarDatosEnTabla(); // Cargar todos los objetos si el campo de búsqueda está vacío
@@ -78,8 +89,7 @@ public class VentanaPrincipal {
     }
 
     private void cargarDatosEnTabla() {
-        DatabaseService dbService = new DatabaseService();
-        List<ObjetoPerdido> objetos = dbService.obtenerTodosLosObjetos();
+        List<ObjetoPerdido> objetos = databaseService.obtenerTodosLosObjetos();
 
         if (objetos != null) {
             objectsTableView.getItems().setAll(objetos);
