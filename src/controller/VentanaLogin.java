@@ -1,5 +1,3 @@
-package controller;
-
 //Imports para hacer la base de datos que guarda usuario y contraseña del usuario en MySQL
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,10 +9,9 @@ import service.DatabaseService;
 //Otros imports
 import java.util.*;
 import model.Usuario;
-import java.util.ArrayList;
 
 public class VentanaLogin{ //Clase de ventana del login
-    /*//List<Usuario> usuarios = new ArrayList<Usuario>();
+    //List<Usuario> usuarios = new ArrayList<Usuario>();
 
     //Creación de la base de datos y establecer conexión con la cuenta de MySQL
     DatabaseService sqldatabase = new DatabaseService();
@@ -22,7 +19,7 @@ public class VentanaLogin{ //Clase de ventana del login
     Statement statement = connection.createStatement();
 
     //Método constructor
-    public String RegistrarNuevaCuenta(String correo, String pasw){
+    /*public String RegistrarNuevaCuenta(String correo, String pasw){
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario (" + "id INT AUTO_INCREMENT PRIMARY KEY, " + "correo AUTO_INCREMENT, " + "pasw AUTO_INCREMENT;");
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Usuario (correo, pasw) VALUES (?, ?)");
 

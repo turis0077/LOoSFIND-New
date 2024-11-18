@@ -140,7 +140,4 @@ public class DatabaseService {
 
         return objetos;
     }
-
-    // Otros métodos de utilidad si los necesitas
-
 }
