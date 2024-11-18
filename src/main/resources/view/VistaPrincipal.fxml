@@ -36,6 +36,7 @@
         </image>
     </ImageView>
 
+
     <!-- Botón para agregar objetos -->
     <Button layoutX="513.0" layoutY="93.0" onAction="#addObject" prefHeight="49.0" prefWidth="292.0" style="-fx-background-color: #2F3133; -fx-text-fill: white; -fx-border-color: #9FA9A1;" text="Haz click aquí para agregar un objeto" />
 

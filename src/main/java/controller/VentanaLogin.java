@@ -32,7 +32,6 @@ public class VentanaLogin {
     private DatabaseService dbService = new DatabaseService(); // Asegura inicialización aquí
 
     public VentanaLogin() {
-        // Constructor vacío
     }
 
     public void setPrimaryStage(Stage primaryStage) {
